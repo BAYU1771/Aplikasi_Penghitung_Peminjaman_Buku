@@ -81,3 +81,26 @@ void pinjamBuku() {
     cout << "Buku tidak ditemukan atau sedang dipinjam.\n";
 }
 
+void kembalikanBuku() {
+    string judul;
+    cout << "Masukkan judul buku yang ingin dikembalikan: ";
+    cin.ignore(); // Membersihkan buffer input
+    getline(cin, judul);
+
+    for (Buku& buku : buku) {
+        if (buku.judul == judul && buku.sedangDipinjam) {
+            time_t sekarang;
+            time(&sekarang);
+            buku.sedangDipinjam = false;
+
+            int dendaTerlambat = hitungDendaTerlambat(buku.tanggalKembali);
+            if (dendaTerlambat > 0) {
+                cout << "Anda terlambat mengembalikan buku. Denda: Rp" << dendaTerlambat << endl;
+            } else {
+                cout << "Buku berhasil dikembalikan tepat waktu.\n";
+            }
+            return;
+        }
+    }
+    cout << "Buku tidak ditemukan atau belum dipinjam.\n";
+}
