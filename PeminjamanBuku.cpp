@@ -104,3 +104,17 @@ void kembalikanBuku() {
     }
     cout << "Buku tidak ditemukan atau belum dipinjam.\n";
 }
+
+void tampilkanBuku() {
+    cout << "\n===== Daftar Buku =====\n";
+    for (const Buku& buku : buku) {
+        cout << "Judul: " << buku.judul << endl;
+        if (buku.sedangDipinjam) {
+            cout << "Status: Dipinjam\n";
+            cout << "Tanggal Pengembalian: " << formatTanggal(buku.tanggalKembali) << endl;
+        } else {
+            cout << "Status: Tersedia\n";
+        }
+        cout << "--------------------------\n";
+    }
+}
