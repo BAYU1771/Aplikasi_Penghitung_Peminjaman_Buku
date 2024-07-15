@@ -17,6 +17,13 @@ vector<Buku> buku;
 const int MAKS_HARI_PINJAM = 7;
 const int DENDA_TERLAMBAT = 2000;
 
+void tambahBuku();
+void pinjamBuku();
+void kembalikanBuku();
+void tampilkanBuku();
+int hitungDendaTerlambat(time_t tanggalKembali);
+string formatTanggal(time_t tanggal);
+
 int main() {
     int pilihan;
     do {
@@ -43,7 +50,7 @@ int main() {
                 tampilkanBuku();
                 break;
             case 5:
-                cout << "Keluar dari program.\n";
+                cout << "Terima Kasih Telah Berkunjung\n";
                 break;
             default:
                 cout << "Pilihan tidak valid. Coba lagi.\n";
