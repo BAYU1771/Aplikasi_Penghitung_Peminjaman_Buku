@@ -31,16 +31,16 @@ int main() {
 
         switch (pilihan) {
             case 1:
-                
+                tambahBuku();
                 break;
             case 2:
-                
+                pinjamBuku();
                 break;
             case 3:
-                
+                kembalikanBuku();
                 break;
             case 4:
-                
+                tampilkanBuku();
                 break;
             case 5:
                 cout << "Keluar dari program.\n";
