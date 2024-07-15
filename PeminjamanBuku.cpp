@@ -62,3 +62,22 @@ void tambahBuku() {
     buku.push_back(bukuBaru);
     cout << "Buku berhasil ditambahkan.\n";
 }
+
+void pinjamBuku() {
+    string judul;
+    cout << "Masukkan judul buku yang ingin dipinjam: ";
+    cin.ignore(); // Membersihkan buffer input
+    getline(cin, judul);
+
+    for (Buku& buku : buku) {
+        if (buku.judul == judul && !buku.sedangDipinjam) {
+            buku.sedangDipinjam = true;
+            time(&buku.tanggalPinjam);
+            buku.tanggalKembali = buku.tanggalPinjam + MAKS_HARI_PINJAM * 24 * 60 * 60;
+            cout << "Buku berhasil dipinjam. Tanggal pengembalian: " << formatTanggal(buku.tanggalKembali) << endl;
+            return;
+        }
+    }
+    cout << "Buku tidak ditemukan atau sedang dipinjam.\n";
+}
+
