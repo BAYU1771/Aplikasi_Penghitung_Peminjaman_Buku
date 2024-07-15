@@ -130,3 +130,11 @@ int hitungDendaTerlambat(time_t tanggalKembali) {
     return 0;
 }
 
+string formatTanggal(time_t tanggal) {
+    struct tm* infoWaktu = localtime(&tanggal);
+    char buffer[11];
+    strftime(buffer, sizeof(buffer), "%d-%m-%Y", infoWaktu);
+    return string(buffer);
+}
+
+
