@@ -118,3 +118,15 @@ void tampilkanBuku() {
         cout << "--------------------------\n";
     }
 }
+
+int hitungDendaTerlambat(time_t tanggalKembali) {
+    time_t sekarang;
+    time(&sekarang);
+    double detikTerlambat = difftime(sekarang, tanggalKembali);
+    if (detikTerlambat > 0) {
+        int hariTerlambat = detikTerlambat / (24 * 60 * 60);
+        return hariTerlambat * DENDA_TERLAMBAT;
+    }
+    return 0;
+}
+
