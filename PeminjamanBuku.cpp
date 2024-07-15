@@ -52,3 +52,13 @@ int main() {
 
     return 0;
 }
+
+void tambahBuku() {
+    Buku bukuBaru;
+    cout << "Masukkan judul buku: ";
+    cin.ignore();
+    getline(cin, bukuBaru.judul);
+    bukuBaru.sedangDipinjam = false;
+    buku.push_back(bukuBaru);
+    cout << "Buku berhasil ditambahkan.\n";
+}
